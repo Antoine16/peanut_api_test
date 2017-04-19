@@ -1,0 +1,127 @@
+<div class="banner-alt container-fluid" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.1) 50%),url(https://images.pexels.com/photos/6335/man-coffee-cup-pen.jpg?w=940&amp;h=650&amp;auto=compress&amp;cs=tinysrgb); background-size: cover;">
+
+
+
+  <div class="wrapper">
+    <div class="container">
+      <div class="row margin-clear">
+        <div class="col-sm-10 col-sm-offset-1 box">
+          <h1 class="padded-left text-white"> Bonjour <strong><%= current_user.first_name.capitalize %> !</strong> </h1>
+            <div class="row">
+              <div class="col-sm-12">
+                <div style="background-color: rgba(250, 250, 250, 0.7); padding-top: 1px; padding-bottom: 15px; padding-left: 25PX; border-radius: 8px;">
+
+                  <div>
+                    <h2>
+                      Votre formule de prêt: <strong> <%= set_roi(@loans.last) %> </strong>
+                    </h2>
+                  </div>
+
+                <div id="message">
+                </div>
+
+                <div class="row">
+                  <ul class="list-inline">
+                    <li class="col-md-8 col-md-offset-1">
+                      <div class="card">
+                        <div class="card-capital-label" id="capital_freeze">Votre Capital actif</div>
+                        <div class="card-capital-value" id="capital_peanut">
+                          <%= @sum %> €
+                        </div>
+                        <div class="card-last-loan"> Votre dernier versement </div>
+                        <div class="card-last-loan-value"><%= current_user.loans.last.capital %> €</div>
+
+                        <button type="button" class="subscribe-button" data-toggle="modal" data-target="#freeze" id="freezing">
+                          Bloquer
+                        </button>
+                        <div class="modal fade" id="freeze" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Vous êtes sur le point d'mmobiliser votre capital</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                Cliquez sur Confirmer pour que votre capital ne soit plus utilisé pour les crédits Peanut. Cette action prendra effet immédiatement.
+                              </div>
+                              <div class="modal-footer">
+                                <ul class="list-inline">
+                                  <li>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                                  </li>
+                                  <li>
+                                    <%= simple_form_for @loan, url: freeze_path, remote: true do |f| %>
+                                    <%= f.button :submit, value: "Confirmer", class: "btn btn-success" %>
+                                    <% end %>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <button type="button" id="cashing" class="subscribe-button" data-toggle="modal" data-target="#cashout" data-whatever="@col-md-offset-1">Cash out</button>
+                        <div class="modal fade" id="cashout" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Quel montant souhaitez vous récupérer?</h5>
+                              </div>
+                              <div class="modal-footer">
+                                <ul class="list-inline">
+                                  <li>
+                                    <button type="button" class="btn btn-secondary"  data-dismiss="modal">Annuler</button>
+                                  </li>
+                                  <li>
+                                    <%= simple_form_for @loan, url: cash_out_path, remote: true do |f| %>
+                                    <%= f.input :retrait, as: :integer, label: false %>
+                                    <%= f.button :submit, value: "Valider votre retrait", class: "btn btn-success" %>
+                                    <% end %>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+
+
+
+                        <div class="card-interest-label">Dont dividendes (générés via crédits Peanut)</div>
+                        <div class="card-interest-value"> <%= @sum * @loans.last.roi %> €</div>
+                      </div>
+                    </li>
+
+
+
+
+                  </ul>
+                </div>
+
+                <div class="row">
+                  <ul class="list-inline">
+                    <li class="col-md-8 col-md-offset-1">
+                      <div class="card"></div>
+                      <div class="card-credits-label" >Capital engagé sur crédits</div>
+                      <div class="card-credits-value"> <%= @sum * 0.1 %>€</div>
+                      <div class="card-refundat-label">Date prévue dernier remboursement</div>
+                      <div class="card-refundat-value">25/03/2017</div>
+                    </li>
+                  </ul>
+                </div>
+
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+
+     <!-- Le bouton Stripe -->
+
+  </div>
+</div>

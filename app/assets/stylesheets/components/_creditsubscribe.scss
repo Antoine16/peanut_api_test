@@ -1,0 +1,33 @@
+.subscribe-button {
+  padding: 0 20px;
+  border-radius: 20em;
+  line-height: 40px;
+  background-color: #04D8A7;
+  color: white;
+  font-size: 14px;
+  border: 2px;
+  text-shadow: 0 -1px 0 #029774;
+  height: 38px;
+}
+.subscribe-button:hover {
+  color: white;
+  background: #4fe3c1;
+  border-color: #4fe3c1;
+}
+.navbar-wagon-item {
+  flex: 0 1 auto;
+  cursor: pointer;
+  padding: 0 20px;
+}
+.call {
+  padding-bottom: 10px;
+}
+#connect {
+  background-color: #306172;
+  color: white;
+}
+
+.form-horizontal .form-group {
+  margin-left: 0px;
+  margin-right: 0px;
+}

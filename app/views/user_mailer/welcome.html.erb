@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Bienvenue sur Peanut, <%= @user.first_name.capitalize %>!</h1>
+    <p>
+      Vous venez de créer votre compte Peanut avec succès! <br>
+      Bienvenue sur notre communauté de prêts entre particuliers!<br>
+    </p>
+    <p>
+      Commencez dès à présent à l'enrichir, souscrivez votre premier crédit en suivant ce lien: <%= link_to "Faire un crédit", root_url %>.
+    </p>
+    <h2>L'equipe Peanut</h2>
+  </body>
+</html>

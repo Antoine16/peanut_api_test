@@ -1,0 +1,29 @@
+// Graphical variables
+@import "config/variables";
+@import "config/bootstrap_variables";
+
+// External libraries
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "jquery-ui";
+
+// Your CSS
+@import "layout/index";
+@import "layout/layout";
+@import "components/index";
+@import "components/table";
+@import "components/slider";
+@import "components/box";
+@import "components/creditsubscribe";
+@import "pages/index";
+@import "pages/newcredit";
+@import "pages/indexloan";
+@import "vendor/index";
+
+@import "pages/indexcredit";
+
+@import "devise/devise";
+
+

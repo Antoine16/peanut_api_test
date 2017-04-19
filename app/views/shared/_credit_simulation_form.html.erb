@@ -1,0 +1,104 @@
+<form class="form-horizontal form-pricing" action="/sim" data-remote="true" method="get" role="form">
+  <div class="price-slider">
+    <h4 class="great">Montant du prêt</h4>
+    <span>minimum 50€</span>
+    <div class="col-sm-10 col-sm-offset-1">
+      <div id="slider"></div>
+    </div>
+  </div>
+  <div class="price-slider">
+    <h4 class="great">Durée du prêt</h4>
+    <span>minimum 1j</span>
+    <div class="col-sm-10 col-sm-offset-1">
+      <div id="slider2"></div>
+    </div>
+  </div>
+
+  <div class="price-form">
+    <div class="form-group">
+      <label for="amount" class="col-sm-6 control-label">Montant : </label>
+      <div class="col-sm-6">
+        <input type="hidden" name="sim[amount]" id="amount" class="form-control">
+        <p class="price lead" id="amount-label"></p>
+        <span class="price">€</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="hidden" name="sim[nb_days]" id="duration" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="duration" class="col-sm-6 control-label">Intérêts : </label>
+      <div class="col-sm-6">
+        <input type="hidden" id="duration" class="form-control">
+        <p class="price lead" id="interests"></p>
+        <span class="price">€</span>
+      </div>
+    </div>
+
+    <hr class="style">
+    <div class="form-group total" style="margin-left: 0px">
+      <label for="total" class="col-sm-6 control-label"><strong>Total : </strong></label>
+      <div class="col-sm-6" style="margin-right: 0px;">
+        <p class="price lead" id="total-amount"></p>
+        <span class="price">€</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="duration" class="col-sm-6 control-label"> Prélévé le : </label>
+      <div class="col-sm-6">
+        <input type="hidden" id="duration" class="form-control">
+        <p class="price lead" id="refund_date"></p>
+        <span class="price"></span>
+      </div>
+    </div>
+  </div>
+  <div class="call">
+    <% if user_signed_in?%>
+      <% if current_user.credits.where(state: "pending").any? %>
+        <button type="button" class="subscribe-button" data-toggle="modal" data-target="#pending_credit">
+          Comment souscrire?
+        </button>
+        <div class="modal fade" id="pending_credit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title text-left" id="exampleModalLabel">
+                Hey <strong> <%= current_user.first_name.capitalize %> </strong>, vous avez déjà un crédit en cours!
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body text-left">
+                Vous ne pouvez pas effectuer de nouveau crédit avant que votre crédit en cours ne soit remboursé. <br>
+                Pour connaître sa date de remboursement cliquez sur <strong>"Mes Crédits"</strong>. <br> <br>
+                Sachez également que plus vous effectuerez de crédits sur Peanut que vous rembourserez en temps et en heure, plus votre note de confiance augmentera! Vous pourrez alors débloquer des options et effectuer plusieurs crédits en même temps! Pour en savoir plus sur les options cliquez sur <strong>"Les Status Peanut"</strong>
+              </div>
+              <div class="modal-footer">
+                <ul class="list-inline">
+                  <li>
+                    <%= link_to root_path, class: "navbar-wagon-item navbar-wagon-button btn" do %>
+                      <%= t(".top_call_to_action", default: "Les Status Peanut") %>
+                      <% end %>
+                  </li>
+                  <li>
+                    <%= link_to credits_path, class: "navbar-wagon-item navbar-wagon-button btn" do %>
+                      <%= t(".top_call_to_action", default: "Mes credits") %>
+                      <% end %>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% else %>
+        <%= link_to new_credit_path, class: "navbar-wagon-item subscribe-button btn" do %>
+          <i class="fa fa-credit-card" aria-hidden="true"></i>
+          <%= t(".top_call_to_action", default: "Souscrire ce prêt") %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <%= link_to "Connectez vous pour souscrire", new_user_session_path, class: "btn", id: "connect"%>
+    <% end %>
+  </div>
+</form>

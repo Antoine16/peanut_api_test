@@ -1,0 +1,210 @@
+<div class="banner container-fluid text-center" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.1) 50%),url(https://images.unsplash.com/photo-1461088945293-0c17689e48ac?dpr=1);">
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-1">
+        <div class="home-calculator-box-inner">
+          <h1 class="lighter" itemprop="name">Besoin d’un coup de pouce ? Empruntez jusqu’a <strong> <span>200€</span></strong> en quelques clics !</h1>
+          <div class="peanutCalculator">
+            <div class="peanutAmount">
+              <%= render 'shared/credit_simulation_form' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="arrow bounce">
+  </div>
+</div>
+
+
+
+
+
+<!--4 ETAPES -->
+  <div class="wrapper">
+    <div class="titlesteph2 text-center">
+      <h2>Comment fonctionne Peanut</h2>
+      <p class="short">Pourquoi notre système de prêts est simple, rapide et unique ?</p>
+    </div>
+
+  <!--bouton switch -->
+  <div class="onoffswitch">
+      <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+      <label class="onoffswitch-label" for="myonoffswitch">
+          <span class="onoffswitch-inner"></span>
+          <span class="onoffswitch-switch"></span>
+      </label>
+  </div>
+
+
+  <div class="container text-center padded features items-borrow four-steps">
+    <div class="row">
+      <div class="peanutstep col-xs-12 col-sm-6 col-md-3">
+        <%= image_tag "picto-etape1.png" %>
+        <div class="titlestep">
+          <h4>Étape 1</h4>
+          <h3>Définissez votre besoin</h3>
+          <p>Choisissez le montant de votre crédit et la date de remboursement ! Vous voyez exactement combien vous devrez rembourser !</p>
+        </div>
+      </div>
+      <div class="peanutstep col-xs-12 col-sm-6 col-md-3">
+        <%= image_tag "picto-etape2.png" %>
+        <div class="titlestep">
+        <h4>Étape 2</h4>
+        <h3>Créez votre compte sécurisé</h3>
+        <p>Pour créer votre compte, rien de plus simple, munissez vous de votre pièce d'identité, de votre carte de crédit et renseignez les informations requises !</p>
+        </div>
+      </div>
+      <div class="peanutstep col-xs-12 col-sm-6 col-md-3">
+        <%= image_tag "picto-etape3.png" %>
+        <div class="titlestep">
+          <h4>Étape 3</h4>
+          <h3>Votre carte est créditée!</h3>
+          <p>Nous répondrons à votre demande en quelques minutes, puis vous receverez directement votre argent !</p>
+        </div>
+      </div>
+      <div class="peanutstep col-xs-12 col-sm-6 col-md-3">
+        <%= image_tag "picto-etape4.png" %>
+        <div class="titlestep">
+          <h4>Étape 4</h4>
+          <h3>Votre carte est débitée à l'échéance</h3>
+          <p>Pour rembourser votre crédit vous n'avez rien à faire, Peanut débite le montant dû à la date que vous avez choisie !</p>
+        </div>
+      </div>
+      <div class="text-center">
+          <br>
+          <p class="short">Avec Peanut, terminé les tracas dans les moments difficiles. Emprunter de petites sommes est extrêmement simple, sûr et transparent ! Vos emprunts sont financés directement par des particuliers et c'est pour cette raison que les intérêts sont réduits au minimum !</p>
+      </div>
+    </div>
+  </div>
+
+
+<!--3 ETAPES -->
+<div class="container text-center padded features slide-closed">
+    <div class="row">
+      <div class="peanutstep col-md-4">
+        <%= image_tag "picto-dont-etape1.png" %>
+        <div class="titlestep">
+          <h4>Étape 1</h4>
+          <h3>Mettez à disposition votre argent</h3>
+          <p>Choisissez le montant que vous souhaitez prêtez. Vous pouvez visualiser combien cela vous rapportera selon la formule selectionnée !</p>
+        </div>
+      </div>
+      <div class="peanutstep col-md-4">
+        <%= image_tag "picto-dont-etape2.png" %>
+        <div class="titlestep">
+          <h4>Étape 2</h4>
+          <h3>Des utilisateurs en profitent au quotidien </h3>
+          <p>Votre argent est distribué aux utilisateurs de Peanut. Ainsi cela aide de nombreuses personnes dans leurs projets ou quoditien !</p>
+        </div>
+      </div>
+      <div class="peanutstep col-md-4">
+        <%= image_tag "picto-dont-etape3.png" %>
+        <div class="titlestep">
+          <h4>Étape 3</h4>
+          <h3>Recupérer votre montant avec intérêts</h3>
+          <p>Quand vous le souhaitez retrouvé votre argent fructifié, pour cela pensez à le signaler dans votre interface personnelle !</p>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="text-center">
+            <br>
+            <p class="short"> Peanut voit avec les prêts entre particuliers, une nouvelle alternative ou tout le monde y gagne. En prêtant votre argent ce n'est pas une personne mais toute une communauté que vous aidez ! De plus les intérêts dont vous privilégiés sont très avantageux.
+            </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--conditions -->
+
+
+  <div id="home-requisites">
+    <div class="row">
+      <div class="text-requieres col-xs-24 col-sm-12 col-md-6">
+
+        <h2>Que faut-il pour demander un prêt ?</h2>
+
+      </div>
+
+      <div class="bloc-requieres col-xs-12 col-md-6">
+        <div class="col-xs-24 col-sm-12 col-md-6">
+          <div class="icon-requisites text-center">
+            <%= image_tag "18.png" %>
+          </div>
+            <h5 class="need text-center">Être majeur</h5>
+        </div>
+
+        <div class="bloc-requieres col-xs-12 col-md-6">
+            <div class="icon-requisites text-center flag">
+            <%= image_tag "flag.png" %>
+            </div>
+            <h5 class="need text-center">Être français</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="bloc-requieres col-xs-12 col-md-6">
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="bloc-requieres col-xs-12 col-md-6">
+          <div class="icon-requisites text-center">
+            <%= image_tag "bank.png" %>
+          </div>
+            <h5 class="need text-center">Avoir une carte de crédit</h5>
+        </div>
+        <div class="bloc-requieres col-xs-24 col-sm-12 col-md-6">
+          <div class="icon-requisites text-center">
+            <%= image_tag "briefcase.png" %>
+          </div>
+            <h5 class="need text-center">Justifier un revenu mensuel</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!--Foires aux questions -->
+
+<div class="faq">
+
+  <h3>  Questions fréquentes </h3>
+
+
+  <div class="peanutquestions col-md-4">
+    <h4>Combien puis-je emprunter avec les prêts immédiats Peanut ?</h4>
+    <p>Vous pouvez emprunter un montant de 50€ à 200€.<p>
+
+    <h4> Quand dois-je payer mon prêt ? </h4>
+    La date de remboursement varie de 5 à 30 jours.
+    Soit le jour choisi durant cette période.
+
+  </div>
+  <div class="peanutquestions col-md-4">
+
+    <h4>Que dois-je faire pour obtenir mon prêt?</h4>
+
+    <p>Choisissez le montant et la durée dans le calculateur.
+    Observer le total à payer et la date de paiement. Enregistrez-vous.
+    Cliquez sur le bouton vert pour remplir votre demande de prêt en ligne.
+    Validez votre demande</p>
+    <h4>Est-ce que Peanut est sécurisé ?</h4>
+    <p>Oui, car Peanut n'enregistre aucuns numéros de carte bleue et est en étroite coloboration avec un système d'API très performant.</p>
+  </div>
+  <div class="peanutquestions col-md-4">
+    <h4>Comment Peanut fait pour m'envoyer mon argent et comment puis-je faire pour effectuer mon paiement?</h4>
+
+    <p>Peanut utilise un système de paiements électroniques qui envoie directement votre prêt sur votre carte bancaire.
+    Votre paiement de prêt est effectué automatiquement via votre carte bancaire, Peanut prélève le jour défini le montant avec intérêts du crédit.</p>
+  </div>
+</div>
+
+<div class="container text-center padded features">
+</div>
+
+

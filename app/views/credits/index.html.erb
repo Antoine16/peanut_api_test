@@ -1,0 +1,119 @@
+<div class="container-fluid" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.1) 50%),url(https://images.pexels.com/photos/305250/pexels-photo-305250.jpeg?w=940&amp;h=650&amp;auto=compress&amp;cs=tinysrgb); background-size: cover; height: 100vh;">
+
+
+<div class="container ">
+  <div class="row margin-clear">
+    <div class="col-md-4 box">
+      <h3 class="text-white padded-left">Votre profil:</h3>
+      <div>
+        <div style="background-color: rgba(250,250,250, 0.8); padding: 1px 25px 15px 25px; border-radius: 8px;">
+          <ul style="margin: 0; padding-left: 0; list-style: none;">
+            <li>
+              <strong>Nom :</strong> <%= current_user.last_name %>
+            </li>
+            <li>
+              <strong>Email :</strong> <%= current_user.email %>
+            </li>
+            <li>
+              <strong>Téléphone :</strong> <%= current_user.phone %>
+            </li>
+            <li>
+              <strong>Adresse :</strong> <%= current_user.address %>
+            </li>
+            <hr>
+            <li>
+              <strong>Note:</strong> <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                <% 4.times do %>
+                  <i class="fa fa-star-o" aria-hidden="true"></i>
+                <% end %>
+            </li>
+            <li><strong>Montant max. du crédit:</strong> 200 €</li>
+            <li><strong>Nombre max. de crédits simultanés:</strong> 1</li>
+            <li><strong>Taux d'emprunt:</strong> Primo emprunteur</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-7 col-md-offset-1 box">
+      <div>
+        <h3 class="padded-left text-white">Vos crédits:</h3>
+      </div>
+      <div style="list-style: none;" style="background-color: rgba(250,250,250,0.8)">
+        <!-- ici mettre crédit pending -->
+        <div class="bloc-credit">
+          <% pendings = current_user.credits.where(state: "pending") %>
+          <% if pendings.any? %>
+          <% pendings.each do |credit| %>
+          <div class="row">
+            <div class="col-sm-10">
+              <ul style="list-style: none;">
+                <li>
+                  <strong> Crédit en cours :</strong>
+                </li>
+                <li>
+                  Montant : <strong class="essai"><%= credit.amount %> € </strong>
+                </li>
+                <li>
+                  Éffectué le : <%= credit.created_at.strftime("%d/%m/%Y") %>
+                </li>
+                <li>
+                  Date de remboursement : <%= credit.refund_at.strftime("%d/%m/%Y") %>
+                </li>
+              </ul>
+            </div>
+            <div class="col-sm-2">
+              <div class="peanut-pending">
+                <%= image_tag "peanut-stripe.png" %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+          <% else %>
+          <li>
+            Vous n'avez pas de crédit en cours.
+          </li>
+          <% end %>
+        </div>
+
+        <!-- ici mettre crédit paid -->
+        <div class="bloc-credit">
+          <% paids = current_user.credits.where(state: "paid") %>
+          <% if paids.any? %>
+          <% paids.each do |credit| %>
+          <div class="row">
+            <div class="col-sm-10">
+              <ul style="list-style: none;">
+                <li>
+                  <strong> Historique de vos crédits :</strong>
+                </li>
+                <li>
+                  Montant : <strong class="essai"><%= credit.amount %> € </strong>
+                </li>
+                <li>
+                  Éffectué le : <%= credit.created_at.strftime("%d/%m/%Y") %>
+                </li>
+                <li>
+                  Remboursé le : <%= credit.refund_at.strftime("%d/%m/%Y") %>
+                </li>
+
+              </ul>
+            </div>
+            <div class="col-sm-2">
+              <div class="peanut-credit-over">
+                <%= image_tag "peanut-credit-over.png" %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+          <% else %>
+          <li>
+            Aucun crédit dans votre historique.
+          </li>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>

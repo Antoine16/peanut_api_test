@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Bonjour, <%= @user.first_name.capitalize %>!</h1>
+    <p>
+      Merci d'avoir utilisé Peanut <br>
+      Vous venez de souscrire un crédit, veuillez lire attentivement le récapitulatif ci-dessous.<br>
+    </p>
+    <p>Peanut repose sur la confiance entre ses membres, nous comptons sur vous pour vous assurer du remboursement de votre crédit en temps et en heure après avoir profité de votre argent!</p>
+    <div class="row">
+      <div class="col-sm-10">
+        <ul style="list-style: none;">
+          <li>
+            Montant : <strong class="essai"><%= @credit.amount %> € </strong>
+          </li>
+          <li>
+            Éffectué le : <%= @credit.created_at.strftime("%d/%m/%Y") %>
+          </li>
+          <li>
+            Montant à rembourser : <%= @credit.total_amount %>
+          </li>
+          <li>
+            Date de remboursement : <%= @credit.refund_at.strftime("%d/%m/%Y") %>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <p>
+      Pour consulter ces informations en ligne, rendez vous sur votre compte en suivant ce lien <%= link_to "Mes crédits", credits_url(@user) %>.
+    </p>
+    <p>L'equipe Peanut</p>
+  </body>
+</html>
